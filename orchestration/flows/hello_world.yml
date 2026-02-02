@@ -1,0 +1,51 @@
+id: my_test_flow_1
+namespace: test_flows
+
+inputs:
+  - id: name
+    type: STRING
+    defaults: Paras
+
+variables:
+  welcome_msg: "Hello, {{inputs.name}}!"
+
+concurrency:
+  behavior: FAIL
+  limit: 2
+
+tasks:
+  - id: hello
+    type: io.kestra.plugin.core.log.Log
+    level: INFO # override the default level from error to info
+    message: "{{render(vars.welcome_msg)}}"
+
+  - id: generate_output # - is treated as a list
+    type: io.kestra.plugin.core.debug.Return
+    format: "This is generated during {{flow.id}}"
+
+  - id: sleep
+    type: io.kestra.plugin.core.flow.Sleep
+    duration: PT20S # test concurrent execution start 3 
+    #tasks quickly press execute button 3 times and see the output
+
+  - id: log_output
+    type: io.kestra.plugin.core.log.Log
+    message: "This is an output: {{ outputs.generate_output.value }}"
+  
+  - id: goodbye_message
+    type: io.kestra.plugin.core.log.Log
+    message: "Goodbye, {{ inputs.name }}!"
+
+
+pluginDefaults:
+  - type: io.kestra.plugin.core.log.Log
+    values:
+      level: ERROR
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 10 * * *"
+    inputs:
+      name: Sarah
+    disabled: true
