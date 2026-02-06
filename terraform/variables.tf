@@ -19,7 +19,7 @@ variable "location" {
 variable "gcs_bucket_name" {
   type        = string
   description = "My GCS bucket name"
-  default     = "demo_bucket_psilu"
+  default     = "demo_bucket"
 }
 
 variable "gcs_storage_class" {

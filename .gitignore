@@ -252,3 +252,4 @@ terraform.rc
 # planout
 *.json
 .env_encoded
+.DS_Store
