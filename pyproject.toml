@@ -8,3 +8,8 @@ dependencies = [
     "google-cloud-bigquery>=3.40.0",
     "google-cloud-storage>=3.9.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "analytics_engineering",
+]
