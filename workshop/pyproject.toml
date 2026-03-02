@@ -1,0 +1,12 @@
+[project]
+name = "workshop"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "altair>=6.0.0",
+    "dlt[workspace]>=1.22.2",
+    "pandas>=3.0.1",
+    "pyarrow-hotfix>=0.7",
+]
