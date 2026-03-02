@@ -253,3 +253,10 @@ terraform.rc
 *.json
 .env_encoded
 .DS_Store
+
+.bruin.yml
+*.db
+*.db.wal
+logs/
+__pycache__/
+*.py[cod]
