@@ -1,6 +1,5 @@
 # Module 6 Homework — Batch Processing with PySpark
 **DataTalksClub Data Engineering Zoomcamp 2026**
-**Submit at:** https://courses.datatalks.club/de-zoomcamp-2026/homework/hw6
 
 ---
 
