@@ -1,0 +1,9 @@
+# Raw data files — download from source, do not commit
+*.parquet
+*.csv
+
+# Generated Spark output
+output/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
